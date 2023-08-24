@@ -1,4 +1,5 @@
 import express from "express";
+import cors from "cors";
 import bodyParser from "body-parser";
 import { fileURLToPath } from "url";
 import { dirname, join } from "path";
@@ -10,6 +11,7 @@ import methodOverride from "method-override";
 import session from "express-session";
 import flash from "connect-flash";
 const app = express();
+app.use(cors());
 mongoose.connect("mongodb://127.0.0.1:27017/website-sekolah");
 app.set("view engine", "ejs");
 app.set("views", "views");

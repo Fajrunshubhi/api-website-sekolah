@@ -20,7 +20,6 @@ const viewDashboard = async (req, res) => {
         const user = await User.findOne({
             username: req.session.user.username,
         });
-        console.log(agenda);
         res.render("admin/dashboard/view_dashboard", {
             title: "SDN BANYUROTO 1 | Dashboard",
             user: user,
