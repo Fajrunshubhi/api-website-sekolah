@@ -13,10 +13,10 @@ import flash from "connect-flash";
 const app = express();
 app.use(cors());
 mongoose
-    .connect(
-        "mongodb+srv://sdnbanyuroto1:sdnbanyuroto1sawangan@cluster0.tvs3mkj.mongodb.net/db_website_sekolah?retryWrites=true&w=majority",
-        { useNewUrlParser: true, useUnifiedTopology: true }
-    )
+    .connect(process.env.DB_URI, {
+        useNewUrlParser: true,
+        useUnifiedTopology: true,
+    })
     .then(() => {
         console.log("Berhasil terhubung ke MongoDB Atlas");
     })
@@ -53,7 +53,7 @@ app.use("/admin", adminRouter);
 app.use("/", indexRouter);
 app.use("/api/v1", apiRouter);
 
-const port = 8000;
+const port = process.env.PORT;
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
