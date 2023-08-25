@@ -12,7 +12,17 @@ import session from "express-session";
 import flash from "connect-flash";
 const app = express();
 app.use(cors());
-mongoose.connect("mongodb://127.0.0.1:27017/website-sekolah");
+mongoose
+    .connect(
+        "mongodb+srv://sdnbanyuroto1:sdnbanyuroto1sawangan@cluster0.tvs3mkj.mongodb.net/db_website_sekolah?retryWrites=true&w=majority",
+        { useNewUrlParser: true, useUnifiedTopology: true }
+    )
+    .then(() => {
+        console.log("Berhasil terhubung ke MongoDB Atlas");
+    })
+    .catch((error) => {
+        console.error("Gagal terhubung ke MongoDB Atlas:", error);
+    });
 app.set("view engine", "ejs");
 app.set("views", "views");
 
