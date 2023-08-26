@@ -10,6 +10,8 @@ import mongoose from "mongoose";
 import methodOverride from "method-override";
 import session from "express-session";
 import flash from "connect-flash";
+import { config } from "dotenv";
+config();
 const app = express();
 app.use(cors());
 mongoose
