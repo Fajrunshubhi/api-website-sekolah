@@ -88,7 +88,7 @@ const actionLogout = (req, res) => {
 
 const viewBerita = async (req, res) => {
     try {
-        const beritas = await Berita.find();
+        const beritas = await Berita.find().sort({ _id: -1 });
         const alertMessage = req.flash("alertMessage");
         const alertStatus = req.flash("alertStatus");
         const alert = { message: alertMessage, status: alertStatus };
@@ -184,7 +184,7 @@ const deleteBerita = async (req, res) => {
 
 const viewAgenda = async (req, res) => {
     try {
-        const agendas = await Agenda.find();
+        const agendas = await Agenda.find().sort({ _id: -1 });
         const alertMessage = req.flash("alertMessage");
         const alertStatus = req.flash("alertStatus");
         const alert = { message: alertMessage, status: alertStatus };
@@ -284,7 +284,7 @@ const deleteAgenda = async (req, res) => {
 
 const viewPrestasi = async (req, res) => {
     try {
-        const prestasis = await Prestasi.find();
+        const prestasis = await Prestasi.find().sort({ _id: -1 });
         const alertMessage = req.flash("alertMessage");
         const alertStatus = req.flash("alertStatus");
         const alert = { message: alertMessage, status: alertStatus };
@@ -367,7 +367,7 @@ const deletePrestasi = async (req, res) => {
 
 const viewFoto = async (req, res) => {
     try {
-        const fotos = await Foto.find();
+        const fotos = await Foto.find().sort({ _id: -1 });
         const alertMessage = req.flash("alertMessage");
         const alertStatus = req.flash("alertStatus");
         const alert = { message: alertMessage, status: alertStatus };
@@ -451,7 +451,7 @@ const deleteFoto = async (req, res) => {
 
 const viewVideo = async (req, res) => {
     try {
-        const videos = await Video.find();
+        const videos = await Video.find().sort({ _id: -1 });
         const alertMessage = req.flash("alertMessage");
         const alertStatus = req.flash("alertStatus");
         const alert = { message: alertMessage, status: alertStatus };
